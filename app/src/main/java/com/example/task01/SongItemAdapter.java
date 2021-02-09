@@ -1,0 +1,49 @@
+package com.example.task01;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
+
+public class SongItemAdapter extends RecyclerView.Adapter<SongItemAdapter.ViewHolder> {
+
+    List<SongModel> item_List;
+    public SongItemAdapter(List<SongModel> list) {
+        this.item_List = list;
+    }
+
+    @NonNull
+    @Override
+    public SongItemAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rowitem, parent,false);
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull SongItemAdapter.ViewHolder holder, int position) {
+        holder.item_Image.setImageResource(item_List.get(position).getItem_Image());
+        holder.item_Text.setText(item_List.get(position).getItem_Text());
+    }
+
+    @Override
+    public int getItemCount() {
+        return item_List.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView item_Image;
+        TextView item_Text;
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            item_Image = itemView.findViewById(R.id.item_image);
+            item_Text = itemView.findViewById(R.id.item_text);
+        }
+    }
+}
