@@ -20,7 +20,7 @@ import java.util.List;
 public class SongFragment extends Fragment {
 
     RecyclerView recyclerView;
-    List<SongModel> item_List;
+    List<SongModel> song_List;
 
     @Nullable
     @Override
@@ -33,17 +33,17 @@ public class SongFragment extends Fragment {
         return view;
     }
     public List<SongModel> initData(){
-        item_List = new ArrayList<>();
-        item_List.add(new SongModel(R.drawable.song, "Song 1"));
-        item_List.add(new SongModel(R.drawable.song2, "Song 2"));
-        item_List.add(new SongModel(R.drawable.song3, "Song 3"));
-        item_List.add(new SongModel(R.drawable.song4, "Song 4"));
-        item_List.add(new SongModel(R.drawable.song5, "Song 5"));
-        item_List.add(new SongModel(R.drawable.song, "Song 1"));
-        item_List.add(new SongModel(R.drawable.song2, "Song 2"));
-        item_List.add(new SongModel(R.drawable.song3, "Song 3"));
-        item_List.add(new SongModel(R.drawable.song4, "Song 4"));
-        item_List.add(new SongModel(R.drawable.song5, "Song 5"));
-        return item_List;
+        song_List = new ArrayList<>();
+        song_List.add(new SongModel(R.drawable.song, "Song 1"));
+        song_List.add(new SongModel(R.drawable.song2, "Song 2"));
+        song_List.add(new SongModel(R.drawable.song3, "Song 3"));
+        song_List.add(new SongModel(R.drawable.song4, "Song 4"));
+        song_List.add(new SongModel(R.drawable.song5, "Song 5"));
+        song_List.add(new SongModel(R.drawable.song, "Song 1"));
+        song_List.add(new SongModel(R.drawable.song2, "Song 2"));
+        song_List.add(new SongModel(R.drawable.song3, "Song 3"));
+        song_List.add(new SongModel(R.drawable.song4, "Song 4"));
+        song_List.add(new SongModel(R.drawable.song5, "Song 5"));
+        return song_List;
     }
 }
