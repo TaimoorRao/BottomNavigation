@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -30,6 +31,16 @@ public class SongItemAdapter extends RecyclerView.Adapter<SongItemAdapter.ViewHo
     public void onBindViewHolder(@NonNull SongItemAdapter.ViewHolder holder, int position) {
         holder.item_Image.setImageResource(item_List.get(position).getItem_Image());
         holder.item_Text.setText(item_List.get(position).getItem_Text());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(position == 0){
+                    AppCompatActivity activity = (AppCompatActivity)v.getContext();
+                    SecondSongFragment secondSongFragment = new SecondSongFragment();
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,secondSongFragment).addToBackStack(null).commit();
+                }
+            }
+        });
     }
 
     @Override
