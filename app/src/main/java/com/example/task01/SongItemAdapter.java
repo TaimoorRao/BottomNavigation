@@ -35,6 +35,10 @@ public class SongItemAdapter extends RecyclerView.Adapter<SongItemAdapter.ViewHo
             @Override
             public void onClick(View v) {
                 if(position == 0){
+                    /**
+                     * AppCompatActivity inherits from FragmentActivity
+                     * so if we need to handle Fragments we can using the Fragment Manager.
+                     */
                     AppCompatActivity activity = (AppCompatActivity)v.getContext();
                     SecondSongFragment secondSongFragment = new SecondSongFragment();
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,secondSongFragment).addToBackStack(null).commit();

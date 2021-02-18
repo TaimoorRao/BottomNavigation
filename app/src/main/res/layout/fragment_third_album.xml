@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".SecondAlbumFragment">
 
-    <TextView
-        android:id="@+id/txtView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Third Album Fragment"
-        android:textSize="30dp"
-        android:layout_centerInParent="true"/>
+<!--    <TextView-->
+<!--        android:id="@+id/txtView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Third Album Fragment"-->
+<!--        android:textSize="30dp"-->
+<!--        android:layout_centerInParent="true"/>-->
 
 </RelativeLayout>
