@@ -39,30 +39,35 @@ public class ArtistItemAdapter extends RecyclerView.Adapter<ArtistItemAdapter.Vi
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(v.getRootView().getContext());
-                View view = LayoutInflater.from(v.getRootView().getContext()).inflate(R.layout.custom_dialog,null);
-                de.hdodenhof.circleimageview.CircleImageView dialogbox_image;
-                TextView dialogbox_name;
-                TextView dialogbox_artist_description;
-                TextView dialogbox_description;
-                dialogbox_image = view.findViewById(R.id.artist_dialogbox_image);
-                dialogbox_name = view.findViewById(R.id.artist_dialogbox_name);
-                dialogbox_artist_description = view.findViewById(R.id.artist_dialogbox_description);
-                dialogbox_description = view.findViewById(R.id.dialogbox_description);
-                dialogbox_image.setImageResource(model.getItem_Image());
-                dialogbox_name.setText(model.getItem_Text1());
-                dialogbox_artist_description.setText(model.getItem_Text2());
-                dialogbox_description.setText(model.getDescription());
-                builder.setView(view).setTitle("Artist Dialog Box")
-                        .setNegativeButton("Back", new DialogInterface.OnClickListener() {
+                openCustomDialog(v, position);
+            }
+        });
+    }
+
+    public void openCustomDialog(View v, int position){
+        ArtistModel model = artist_List.get(position);
+        AlertDialog.Builder builder = new AlertDialog.Builder(v.getRootView().getContext());
+        View view = LayoutInflater.from(v.getRootView().getContext()).inflate(R.layout.custom_dialog,null);
+        de.hdodenhof.circleimageview.CircleImageView dialogbox_image;
+        TextView dialogbox_name;
+        TextView dialogbox_artist_description;
+        TextView dialogbox_description;
+        dialogbox_image = view.findViewById(R.id.artist_dialogbox_image);
+        dialogbox_name = view.findViewById(R.id.artist_dialogbox_name);
+        dialogbox_artist_description = view.findViewById(R.id.artist_dialogbox_description);
+        dialogbox_description = view.findViewById(R.id.dialogbox_description);
+        dialogbox_image.setImageResource(model.getItem_Image());
+        dialogbox_name.setText(model.getItem_Text1());
+        dialogbox_artist_description.setText(model.getItem_Text2());
+        dialogbox_description.setText(model.getDescription());
+        builder.setView(view).setTitle("Artist Dialog Box")
+                .setNegativeButton("Back", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
                     }
                 });
-                builder.show();
-            }
-        });
+        builder.show();
     }
 
     @Override
