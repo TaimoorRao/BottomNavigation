@@ -29,11 +29,16 @@ public class ArtistFragment extends Fragment {
     }
     public List<ArtistModel> initData(){
         artist_List = new ArrayList<>();
-        artist_List.add(new ArtistModel(R.drawable.artist1, "Artist 1","Khalid"));
-        artist_List.add(new ArtistModel(R.drawable.artist2, "Artist 2","Micheal Jackson"));
-        artist_List.add(new ArtistModel(R.drawable.artist3, "Artist 3","Shawn Mandes"));
-        artist_List.add(new ArtistModel(R.drawable.artist4, "Artist 4","Billie"));
-        artist_List.add(new ArtistModel(R.drawable.artist5, "Artist 5","Taylor"));
+        artist_List.add(new ArtistModel(R.drawable.artist1, "Artist 1","Khalid", R.string.description));
+        artist_List.add(new ArtistModel(R.drawable.artist2, "Artist 2","Micheal Jackson", R.string.description));
+        artist_List.add(new ArtistModel(R.drawable.artist3, "Artist 3","Shawn Mandes", R.string.description));
+        artist_List.add(new ArtistModel(R.drawable.artist4, "Artist 4","Billie", R.string.description));
+        artist_List.add(new ArtistModel(R.drawable.artist5, "Artist 5","Taylor", R.string.description));
+        artist_List.add(new ArtistModel(R.drawable.artist1, "Artist 1","Khalid", R.string.description));
+        artist_List.add(new ArtistModel(R.drawable.artist2, "Artist 2","Micheal Jackson", R.string.description));
+        artist_List.add(new ArtistModel(R.drawable.artist3, "Artist 3","Shawn Mandes", R.string.description));
+        artist_List.add(new ArtistModel(R.drawable.artist4, "Artist 4","Billie", R.string.description));
+        artist_List.add(new ArtistModel(R.drawable.artist5, "Artist 5","Taylor", R.string.description));
         return artist_List;
     }
 }

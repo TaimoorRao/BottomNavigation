@@ -1,15 +1,21 @@
 package com.example.task01;
 
 public class ArtistModel {
-    int item_Image;
-    String item_Text1;
-    String item_Text2;
+    private int item_Image;
+    private String item_Text1;
+    private String item_Text2;
+    private int description;
 
-    public ArtistModel(int item_Image, String item_Text1, String item_Text2) {
+    public ArtistModel(int item_Image, String item_Text1, String item_Text2, int desc) {
         this.item_Image = item_Image;
         this.item_Text1 = item_Text1;
         this.item_Text2 = item_Text2;
+        this.description = desc;
     }
+
+    public int getDescription() { return description; }
+
+    public void setDescription(int description) { this.description = description; }
 
     public int getItem_Image() {
         return item_Image;

@@ -1,55 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content">
-    <androidx.cardview.widget.CardView
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RelativeLayout
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
+        android:background="#fff">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/item_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_artist"
+            android:padding="15dp"/>
+        <TextView
+            android:id="@+id/artist_text1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/item_image"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:src="@drawable/ic_artist"
-                app:civ_border_width="4dp"
-                android:padding="4dp"
-                app:civ_border_color="#785151"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:gravity="center"
-                >
-                <TextView
-                    android:id="@+id/artist_text1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="name"
-                    android:textSize="25dp"
-                    android:padding="10dp"
-                    android:layout_toEndOf="@+id/item_image"
-                    android:layout_toRightOf="@+id/item_image"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp" />
-                <TextView
-                    android:id="@+id/artist_text2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="description"
-                    android:textSize="10sp"
-                    android:paddingRight="20dp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:paddingLeft="10dp"
-                    android:layout_toEndOf="@+id/item_text1"
-                    android:layout_toRightOf="@+id/item_image"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp" />
-            </LinearLayout>
+            android:layout_toRightOf="@+id/item_image"
+            android:text="name"
+            android:textColor="#000"
+            android:fontFamily="sans-serif"
+            android:textSize="16sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/artist_text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/item_image"
+            android:layout_below="@+id/artist_text1"
+            android:textSize="13sp"
+            android:text="description"
+            android:fontFamily="sans-serif"
+            android:layout_marginLeft="20dp"
+            />
+        <Button
+            android:id="@+id/btn_click"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Click"
+            android:textAllCaps="false"
+            android:background="@drawable/click_back_btn"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"/>
 
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
-</androidx.appcompat.widget.LinearLayoutCompat>
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:gravity="center">-->
+<!--            <TextView-->
+<!--                android:id="@+id/artist_text1"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="name"-->
+<!--                android:textSize="25dp"-->
+<!--                android:padding="10dp"-->
+<!--                android:layout_toEndOf="@+id/item_image"-->
+<!--                android:layout_toRightOf="@+id/item_image"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                android:layout_marginLeft="8dp" />-->
+<!--            <TextView-->
+<!--                android:id="@+id/artist_text2"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="description"-->
+<!--                android:textSize="10sp"-->
+<!--                android:paddingRight="20dp"-->
+<!--                android:paddingTop="15dp"-->
+<!--                android:paddingBottom="15dp"-->
+<!--                android:paddingLeft="10dp"-->
+<!--                android:layout_toEndOf="@+id/item_text1"-->
+<!--                android:layout_toRightOf="@+id/item_image"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                android:layout_marginLeft="8dp" />-->
+<!--        </LinearLayout>-->
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
