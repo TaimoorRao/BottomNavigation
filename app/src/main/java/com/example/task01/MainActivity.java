@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -44,13 +45,15 @@ public class MainActivity extends AppCompatActivity {
                      * This class provide access of fragment like interchanging, binding, add or replace fragments.
                      */
                     FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_right);
                     /**
                      * Transaction performed in between two and multiple fragments by .beginTransaction() Method
                      * Add fragment on activity or replace by .replace() Method
                      * If we want to bind another fragment on a fragment that is already bind on activity we use .addToBackStack() method
                      * .commit() method helps to store and save every state
                      */
-                    fragmentManager.beginTransaction().replace(R.id.frame_layout,selectFragment).addToBackStack(null).commit();
+                    transaction.replace(R.id.frame_layout,selectFragment).addToBackStack(null).commit();
                     return true;
                 }
             };
