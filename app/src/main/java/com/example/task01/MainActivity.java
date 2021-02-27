@@ -19,6 +19,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
+
+        SongFragment songFragment = new SongFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.frame_layout,songFragment).addToBackStack(null).commit();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
@@ -39,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_artist:
                             selectFragment = new ArtistFragment();
                             break;
+                        case R.id.nav_list:
+                            selectFragment = new ListFragment();
+                            break;
                     }
                     /**
                      * If we want to bind one or more fragments on activity we use FragmentManager class
@@ -53,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                      * If we want to bind another fragment on a fragment that is already bind on activity we use .addToBackStack() method
                      * .commit() method helps to store and save every state
                      */
-                    transaction.replace(R.id.frame_layout,selectFragment).addToBackStack(null).commit();
+                    transaction.replace(R.id.frame_layout,selectFragment).commit();
                     return true;
                 }
             };
