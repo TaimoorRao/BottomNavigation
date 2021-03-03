@@ -14,9 +14,14 @@ import androidx.annotation.Nullable;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class BottomSheetDialog extends BottomSheetDialogFragment {
-    private BottomSheetListener bottomSheetListener;
     private EditText editText;
     private Button button;
+    private ListFragment listFragment;
+
+    public BottomSheetDialog(Context context) {
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -26,21 +31,10 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bottomSheetListener.onButtonClicked(editText.getText().toString());
+                listFragment.onCLickBottomSheet(editText.getText().toString());
+//                bottomSheetListener.onButtonClicked(editText.getText().toString());
             }
         });
         return super.onCreateView(inflater, container, savedInstanceState);
-    }
-    public interface BottomSheetListener {
-        void onButtonClicked(String text);
-    }
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        try {
-            bottomSheetListener = (BottomSheetListener) context;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString() + " must implement Bottom Sheet Listener Interface");
-        }
     }
 }

@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class ListFragment extends Fragment implements BottomSheetDialog.BottomSheetListener {
+public class ListFragment extends Fragment {
     private ArrayList<ListItem> mList;
     private RecyclerView mRecyclerView;
     private ListAdapter mAdapter;
@@ -23,14 +23,14 @@ public class ListFragment extends Fragment implements BottomSheetDialog.BottomSh
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Button btn_click_open_dialog = (Button) getView().findViewById(R.id.btn_open_dialog);
-        btn_click_open_dialog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog();
-                bottomSheetDialog.show(getChildFragmentManager(), bottomSheetDialog.getTag());
-            }
-        });
+//        Button btn_click_open_dialog = (Button)getActivity().findViewById(R.id.btn_open_dialog);
+//        btn_click_open_dialog.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+//                bottomSheetDialog.show(getFragmentManager(), "Bottom Sheet");
+//            }
+//        });
     }
 
     @Nullable
@@ -38,14 +38,14 @@ public class ListFragment extends Fragment implements BottomSheetDialog.BottomSh
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list,container,false);
 
-//        Button btn_click_open_dialog = view.findViewById(R.id.btn_open_dialog);
-//        btn_click_open_dialog.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog();
-//                bottomSheetDialog.show(getChildFragmentManager(), bottomSheetDialog.getTag());
-//            }
-//        });
+        Button btn_click_open_dialog = view.findViewById(R.id.btn_open_dialog);
+        btn_click_open_dialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getContext());
+                bottomSheetDialog.show(getFragmentManager(), "Bottom Sheet");
+            }
+        });
 
         createItemList();
         mRecyclerView = view.findViewById(R.id.recycler_list);
@@ -54,9 +54,7 @@ public class ListFragment extends Fragment implements BottomSheetDialog.BottomSh
         mAdapter = new ListAdapter(mList);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
-        /**
-         * Interface Methods Definitions
-         */
+
         mAdapter.setOnItemClickListener(new ListAdapter.OnItemClickListener() {
             @Override
             public void onDeleteIconClick(int position) {
@@ -78,8 +76,7 @@ public class ListFragment extends Fragment implements BottomSheetDialog.BottomSh
         mAdapter.notifyItemRemoved(position);
     }
 
-    @Override
-    public void onButtonClicked(String text) {
+    public void onCLickBottomSheet(String text) {
         mList.add(new ListItem(text));
     }
 
